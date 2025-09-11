@@ -53,7 +53,7 @@ export default function Attendance() {
           onChange={(e) => setSearch(e.target.value)}
         />
         <select
-          className="border p-2 rounded-lg"
+          className="border p-2 rounded-lg text-lg"
           value={courseFilter}
           onChange={(e) => setCourseFilter(e.target.value)}
         >
@@ -64,7 +64,7 @@ export default function Attendance() {
           <option>Operating Systems</option>
         </select>
         <select
-          className="border p-2 rounded-lg"
+          className="border p-2 rounded-lg text-lg"
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
         >
@@ -162,7 +162,7 @@ export default function Attendance() {
       <div className="overflow-x-auto">
         <table className="min-w-full border rounded-xl">
           <thead>
-            <tr className="bg-gray-100 text-left text-center">
+            <tr className="bg-gray-100 text-center">
               <th className="p-3 border">ID</th>
               <th className="p-3 border">Name</th>
               <th className="p-3 border">Course</th>

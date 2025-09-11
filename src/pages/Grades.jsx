@@ -5,6 +5,7 @@ export default function Grades() {
     {
       id: "STU001",
       name: "Hour",
+      gander:"M",
       course: "Data Structures",
       midterm: 25,
       final: 50,
@@ -16,6 +17,7 @@ export default function Grades() {
     {
       id: "STU002",
       name: "Kun",
+      gander:"F",
       course: "English Literature",
       midterm: 20,
       final: 30,
@@ -27,6 +29,7 @@ export default function Grades() {
     {
       id: "STU003",
       name: "Sophy",
+      gander:"M",
       course: "Calculus II",
       midterm: 28,
       final: 40,
@@ -42,6 +45,7 @@ export default function Grades() {
   const [newGrade, setNewGrade] = useState({
     id: "",
     name: "",
+    gander:"",
     course: "",
     midterm: "",
     final: "",
@@ -92,6 +96,7 @@ export default function Grades() {
     setNewGrade({
       id: "",
       name: "",
+      gander:"",
       course: "",
       midterm: "",
       final: "",
@@ -124,15 +129,15 @@ export default function Grades() {
     <div className="p-6 space-y-6 lg:w-full lg:max-w-[1500px] mx-auto">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-3">
-        <div>
-          <h1 className="text-xl md:text-2xl font-bold">Grades</h1>
+        <div className="text-center m-auto">
+          <h1 className="text-2xl md:text-2xl font-bold">Grades</h1>
           <p className="text-gray-500 text-sm md:text-base">
             Manage student grades & academic performance
           </p>
         </div>
         <button
           onClick={() => setShowForm(true)}
-          className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800"
+          className="bg-black text-white px-4 py-2 rounded-lg m-auto text-xl mt-4 hover:bg-gray-800"
         >
           + Add Grade
         </button>
@@ -146,9 +151,9 @@ export default function Grades() {
             key={index}
             className="bg-gray-200 rounded-lg shadow-md p-6 flex flex-col justify-between hover:shadow-xl cursor-pointer"
           >
-            <h1 className="text-[14px] font-semibold">{item.title}</h1>
+            <h1 className="text-[17px] font-semibold text-center">{item.title}</h1>
             <div className="flex items-center justify-between mt-2">
-              <h1 className="text-lg font-bold">{item.value}</h1>
+              <h1 className="text-xl font-bold m-auto">{item.value}</h1>
             </div>
           </div>
         ))}
@@ -171,6 +176,7 @@ export default function Grades() {
             <tr>
               <th className="px-4 py-2 border">ID</th>
               <th className="px-4 py-2 border">Name</th>
+              <th className="px-4 py-2 border">gander</th>
               <th className="px-4 py-2 border">Course</th>
               <th className="px-4 py-2 border">Midterm</th>
               <th className="px-4 py-2 border">Final</th>
@@ -185,6 +191,7 @@ export default function Grades() {
               <tr key={item.id} className="text-center hover:bg-gray-50">
                 <td className="px-4 py-2 border">{item.id}</td>
                 <td className="px-4 py-2 border">{item.name}</td>
+                <td className="px-4 py-2 border">{item.gander}</td>
                 <td className="px-4 py-2 border">{item.course}</td>
                 <td className="px-4 py-2 border">{item.midterm}</td>
                 <td className="px-4 py-2 border">{item.final}</td>
@@ -210,6 +217,16 @@ export default function Grades() {
                 value={newGrade.name}
                 onChange={(e) =>
                   setNewGrade({ ...newGrade, name: e.target.value })
+                }
+                className="w-full border px-3 py-2 rounded"
+                required
+              />
+              <input
+                type="text"
+                placeholder="Gander"
+                value={newGrade.gander}
+                onChange={(e) =>
+                  setNewGrade({ ...newGrade, gander: e.target.value })
                 }
                 className="w-full border px-3 py-2 rounded"
                 required

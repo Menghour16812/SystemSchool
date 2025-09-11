@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 export default function Students() {
   const [students, setStudents] = useState([
-    { id: "ST001", name: "Hour", department: "Computer Science", year: 3, gpa: 3.65, status: "Active" },
-    { id: "ST002", name: "Kun", department: "Information Technology", year: 2, gpa: 3.25, status: "Inactive" },
-    { id: "ST003", name: "Sok", department: "Mathematics", year: 1, gpa: 3.10, status: "Active" },
-    { id: "ST004", name: "Dara", department: "Physics", year: 4, gpa: 3.80, status: "Active" },
+    { id: "ST001", name: "Hour",gander:'M', department: "Computer Science", year: 3, gpa: 3.65, status: "Active" },
+    { id: "ST002", name: "Kun",gander:'F', department: "Information Technology", year: 2, gpa: 3.25, status: "Inactive" },
+    { id: "ST003", name: "Sok",gander:'M', department: "Mathematics", year: 1, gpa: 3.10, status: "Active" },
+    { id: "ST004", name: "Dara",gander:'F', department: "Physics", year: 4, gpa: 3.80, status: "Active" },
   ]);
 
   const [search, setSearch] = useState("");
@@ -14,6 +14,7 @@ export default function Students() {
   const [newStudent, setNewStudent] = useState({
     id: "",
     name: "",
+    gander:"",
     department: "",
     year: "",
     gpa: "",
@@ -29,7 +30,7 @@ export default function Students() {
 
   const handleAddClick = () => {
     setEditingId(null);
-    setNewStudent({ id: "", name: "", department: "", year: "", gpa: "", status: "Active" });
+    setNewStudent({ id: "", name: "",gander:"", department: "", year: "", gpa: "", status: "Active" });
     setShowForm(true);
   };
 
@@ -138,6 +139,15 @@ export default function Students() {
             />
             <input
               type="text"
+              name="gander"
+              placeholder="gander"
+              value={newStudent.gander}
+              onChange={handleChange}
+              className="border p-2 rounded"
+              required
+            />
+            <input
+              type="text"
               name="department"
               placeholder="Department"
               value={newStudent.department}
@@ -218,6 +228,7 @@ export default function Students() {
             <tr>
               <th className="border px-2 py-2">ID</th>
               <th className="border px-2 py-2">Name</th>
+              <th className="border px-2 py-2">Gander</th>
               <th className="border px-2 py-2">Department</th>
               <th className="border px-2 py-2">Year</th>
               <th className="border px-2 py-2">GPA</th>
@@ -230,6 +241,7 @@ export default function Students() {
               <tr key={s.id} className="hover:bg-gray-100 text-center">
                 <td className="border px-2 py-2">{s.id}</td>
                 <td className="border px-2 py-2">{s.name}</td>
+                <td className="border px-2 py-2">{s.gander}</td>
                 <td className="border px-2 py-2">{s.department}</td>
                 <td className="border px-2 py-2">{s.year}</td>
                 <td className="border px-2 py-2">{s.gpa}</td>
